@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swagger-ui-akka-http.iml" filepath="$PROJECT_DIR$/.idea/modules/swagger-ui-akka-http.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swagger-ui-akka-http-build.iml" filepath="$PROJECT_DIR$/.idea/modules/swagger-ui-akka-http-build.iml" />
-    </modules>
-  </component>
-</project>
