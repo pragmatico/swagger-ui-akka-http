@@ -1,56 +1,62 @@
+import xerial.sbt.Sonatype.autoImport._
+import ReleaseTransformations._
+
 name := baseDirectory.value.getName
 
-version := "1.0"
+version := "0.1.0"
+
+organization := "co.pragmati"
 
 scalaVersion := "2.11.8"
 
-crossScalaVersions := Seq("2.11.8", "2.11.0")
+crossScalaVersions := Seq("2.11.8")
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
 
-  val akkaV       = "2.4.7"
+  val akkaV       = "2.4.+"
 
 	Seq (
-		"com.typesafe.akka" %% "akka-actor" % akkaV,
-		"com.typesafe.akka" %% "akka-stream" % akkaV,
-		"com.typesafe.akka" %% "akka-http-experimental" % akkaV,
-		"com.typesafe.akka" %% "akka-http-spray-json-experimental" % akkaV,
-		"com.typesafe.akka" %% "akka-http-testkit" % akkaV
+		"com.typesafe.akka" %% "akka-http-experimental" % akkaV % "provided"
 	)
 }
-
-publishMavenStyle := true
-
-publishTo := {
-	val nexus = "https://oss.sonatype.org/"
-	if (isSnapshot.value)
-		Some("snapshots" at nexus + "content/repositories/snapshots")
-	else
-		Some("releases"  at nexus + "service/local/staging/deploy/maven2")
-}
-
 
 homepage := Some(url("https://github.com/pragmatico/swagger-ui-akka-http"))
 
 licenses := Seq("The Apache Software License, Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 
-//releasePublishArtifactsAction := PgpKeys.publishSigned.value
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
-pomExtra := (
-	<scm>
-		<url>git@github.com:pragmatico/swagger-ui-akka-http.git</url>
-		<connection>scm:git:git@github.com:pragmatico/swagger-ui-akka-http.git</connection>
-	</scm>
-	<developers>
-		<developer>
-			<id>jmbataller</id>
-			<name>Jose Miguel Bataller</name>
-			<url>http://pragmati.co</url>
-	</developer>
-	</developers>)
+releaseProcess := Seq[ReleaseStep](
+	checkSnapshotDependencies,
+	inquireVersions,
+	runClean,
+	runTest,
+	setReleaseVersion,
+	commitReleaseVersion,
+	tagRelease,
+	ReleaseStep(action = Command.process("publishSigned", _)),
+	setNextVersion,
+	commitNextVersion,
+	ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+	pushChanges
+)
 
+//sonatypeProfileName := "co.pragmati"
 
-
-
+// To sync with Maven central, you need to supply the following information:
+pomExtra in Global := {
+			<scm>
+				<connection>scm:git:git@github.com:pragmatico/swagger-ui-akka-http.git</connection>
+				<developerConnection>scm:git:git@github.com:pragmatico/swagger-ui-akka-http.git</developerConnection>
+				<url>github.com/pragmatico</url>
+			</scm>
+			<developers>
+				<developer>
+					<id>jmbataller</id>
+					<name>Jose Miguel Bataller</name>
+					<url>http://github.com/jmbataller</url>
+				</developer>
+			</developers>
+}
