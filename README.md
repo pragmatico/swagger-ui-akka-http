@@ -8,7 +8,7 @@ and is an alternative to drop the static Swagger site files in the resources dir
 ### Add dependency to build.sbt
 
 ```
-libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "0.1.0"
+libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "1.0.0"
 ```
 
 ### Add SwaggerSite route
