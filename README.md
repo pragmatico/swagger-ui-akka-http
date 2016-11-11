@@ -2,7 +2,7 @@
 ### swagger-ui-akka-http
 
 [swagger-ui-akka-http](https://github.com/pragmatico/swagger-ui-akka-http) 
-is compatible with [swagger-akka-http](https://github.com/swagger-akka-http/swagger-akka-http/blob/master/build.sbt) 
+is compatible with [swagger-akka-http](https://github.com/swagger-akka-http/swagger-akka-http) 
 and is an alternative to drop the static Swagger site files in the resources directory of your project.
 
 ### Add dependency to build.sbt
