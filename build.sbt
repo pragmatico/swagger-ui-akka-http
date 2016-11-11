@@ -3,7 +3,7 @@ import ReleaseTransformations._
 
 name := baseDirectory.value.getName
 
-version := "0.1.0"
+version := "1.0.0"
 
 organization := "co.pragmati"
 
