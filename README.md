@@ -13,27 +13,20 @@ libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "0.1.0"
 
 ### Add SwaggerSite route
 
-swagger-ui-akka-http includes SwaggerSite trait that exposes a swagger route hosting files from the ```resources/swagger/``` directory:
+Mix this trait with a new or existing class that has access to the existing routes:
 
 ```
-trait SwaggerSite extends Directives {
-  val swaggerSiteRoute = path("swagger") { 
-    getFromResource("swagger-ui/index.html") } ~ 
-    getFromResourceDirectory("swagger-ui")
-}
+object MyApp extends App with SwaggerSite
 ```
 
-Mix this trait with a new or existing class:
+and concatenate the ```swaggerSiteRoute``` to the existing route definitions:
 
 ```
-object MyApp extends App with SwaggerSite ...
+  val routes = swaggerSiteRoute ~ otherRoute
 ```
 
-and add the ```swaggerSiteRoute``` to the existing route definitions:
+The swagger UI will be accessible under:
 
 ```
-  val routes = swaggerSiteRoute ~
-               ...
+http://<host>:<port>/swagger
 ```
-
-
