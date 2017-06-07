@@ -3,11 +3,11 @@ import ReleaseTransformations._
 
 name := baseDirectory.value.getName
 
-version := "1.0.0"
+version := "1.1.0"
 
 organization := "co.pragmati"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.2"
 
 crossScalaVersions := Seq("2.11.8", "2.12.0")
 
@@ -15,10 +15,10 @@ scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
 
-  val akkaV       = "2.4.+"
+  val akkaV       = "10.0.+"
 
 	Seq (
-		"com.typesafe.akka" %% "akka-http-experimental" % akkaV % "provided"
+		"com.typesafe.akka" %% "akka-http" % akkaV % "provided"
 	)
 }
 
