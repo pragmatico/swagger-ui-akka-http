@@ -7,7 +7,7 @@ version := "1.0.0"
 
 organization := "co.pragmati"
 
-scalaVersion := "2.12.2"
+scalaVersion := "2.11.8"
 
 crossScalaVersions := Seq("2.11.8", "2.12.0")
 
@@ -15,10 +15,10 @@ scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
 
-  val akkaV       = "10.0.+"
+  val akkaV       = "2.4.+"
 
 	Seq (
-		"com.typesafe.akka" %% "akka-http" % akkaV % "provided"
+		"com.typesafe.akka" %% "akka-http-experimental" % akkaV % "provided"
 	)
 }
 
