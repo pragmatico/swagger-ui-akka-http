@@ -7,8 +7,16 @@ and is an alternative to drop the static Swagger site files in the resources dir
 
 ### Add dependency to build.sbt
 
+Version 1.0.0 for Scala 2.11 if using **akka-http-experimental**
+
 ```
 libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "1.0.0"
+```
+
+Version 1.1.0 for Scala 2.12 if using with **akka-http**
+
+```
+libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "1.1.0"
 ```
 
 ### Add SwaggerSite route
