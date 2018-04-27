@@ -45,7 +45,7 @@ releaseProcess := Seq[ReleaseStep](
 )
 
 
-//sonatypeProfileName := "co.pragmati"
+sonatypeProfileName := "co.pragmati"
 
 // To sync with Maven central, you need to supply the following information:
 pomExtra in Global := {
@@ -62,3 +62,19 @@ pomExtra in Global := {
 				</developer>
 			</developers>
 }
+
+
+useGpg := true
+
+pomIncludeRepository := { _ => false }
+publishMavenStyle := true
+
+publishTo := {
+	val nexus = "https://oss.sonatype.org/"
+	if (isSnapshot.value)
+		Some("snapshots" at nexus + "content/repositories/snapshots")
+	else
+		Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
+publishArtifact in Test := false
