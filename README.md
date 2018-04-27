@@ -13,10 +13,10 @@ Version 1.0.0 for Scala 2.11 if using **akka-http-experimental**
 libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "1.0.0"
 ```
 
-Version 1.1.0 for Scala 2.12 if using with **akka-http**
+Version 1.2.0 for Scala 2.12 if using with **akka-http** and swagger-ui 3.13
 
 ```
-libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "1.1.0"
+libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "1.2.0"
 ```
 
 ### Add SwaggerSite route
