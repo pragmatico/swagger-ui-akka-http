@@ -3,7 +3,7 @@ import ReleaseTransformations._
 
 name := baseDirectory.value.getName
 
-version := "1.1.0"
+version := "1.2.0"
 
 organization := "co.pragmati"
 
@@ -26,6 +26,7 @@ homepage := Some(url("https://github.com/pragmatico/swagger-ui-akka-http"))
 
 licenses := Seq("The Apache Software License, Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 
+
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 releaseProcess := Seq[ReleaseStep](
@@ -36,12 +37,13 @@ releaseProcess := Seq[ReleaseStep](
 	setReleaseVersion,
 	commitReleaseVersion,
 	tagRelease,
-	ReleaseStep(action = Command.process("publishSigned", _)),
+	releaseStepCommandAndRemaining("+publishSigned"),
 	setNextVersion,
 	commitNextVersion,
-	ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+	releaseStepCommand("sonatypeReleaseAll"),
 	pushChanges
 )
+
 
 //sonatypeProfileName := "co.pragmati"
 
