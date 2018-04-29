@@ -47,24 +47,38 @@ releaseProcess := Seq[ReleaseStep](
 
 sonatypeProfileName := "co.pragmati"
 
-// To sync with Maven central, you need to supply the following information:
-pomExtra in Global := {
-			<scm>
-				<connection>scm:git:git@github.com:pragmatico/swagger-ui-akka-http.git</connection>
-				<developerConnection>scm:git:git@github.com:pragmatico/swagger-ui-akka-http.git</developerConnection>
-				<url>github.com/pragmatico</url>
-			</scm>
-			<developers>
-				<developer>
-					<id>jmbataller</id>
-					<name>Jose Miguel Bataller</name>
-					<url>http://github.com/jmbataller</url>
-				</developer>
-			</developers>
+
+pomIncludeRepository := { _ => false }
+
+scmInfo := Some(
+	ScmInfo(
+		url("https://github.com/pragmatico/swagger-ui-akka-http.git"),
+		"scm:git:git@github.com:pragmatico/swagger-ui-akka-http.git"
+	)
+)
+
+
+developers := List(
+	Developer(
+		id    = "jmbataller",
+		name  = "Jose Miguel Bataller",
+		email = "jose@pragmati.co",
+		url   = url("http://github.com/jmbataller")
+	)
+)
+
+
+publishMavenStyle := true
+
+
+publishTo := {
+	val nexus = "https://oss.sonatype.org/"
+	if (isSnapshot.value)
+		Some("snapshots" at nexus + "content/repositories/snapshots")
+	else
+		Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
 
 
-
-
-
+publishArtifact in Test := false
 
