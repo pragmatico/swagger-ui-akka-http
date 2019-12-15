@@ -19,7 +19,7 @@ Version 1.2.0 for Scala 2.12 if using with **akka-http** and swagger-ui 3.24.3
 libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "1.2.0"
 ```
 
-Version 1.3.0 for Scala 2.13 if using with **akka-http** and swagger-ui 3.24.3
+Version 1.4.0 for Scala 2.13 if using with **akka-http** and swagger-ui 3.24.3
 
 ```
 libraryDependencies += "co.pragmati" %% "swagger-ui-akka-http" % "1.3.0"

@@ -9,7 +9,7 @@ organization := "co.pragmati"
 
 scalaVersion := "2.13.0"
 
-crossScalaVersions := Seq("2.11.8", "2.12.0", "2.13.0")
+crossScalaVersions := Seq("2.12.0", "2.13.0")
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
